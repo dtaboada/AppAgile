@@ -1,17 +1,22 @@
 import logo from "./logo.svg";
 import "./App.css";
-import PageHome from "./page-home.js";
+import PageHome from "./PageHome.js";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Login from "./auth/login";
+import Register from "./auth/register";
 
 function App() {
-    return (
-        <div class="nav-bg">
-            <nav class="navegacion-principal contenedor">
-                <a href="#">Inicio</a>
-                <a href="#">Informacion</a>
-                <a href="#">Iniciar sesion</a>
-            </nav>
-        </div>
-    );
+  return (
+    <div class="App">
+      <Router>
+        <Switch>
+          <Route exact path="/" component={PageHome}></Route>
+          <Route exact path="/login" component={Login}></Route>
+          <Route exact path="/register" component={Register}></Route>
+        </Switch>
+      </Router>
+    </div>
+  );
 }
 
 export default App;
