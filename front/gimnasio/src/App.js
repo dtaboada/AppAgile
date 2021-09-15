@@ -4,6 +4,7 @@ import PageHome from "./PageHome.js";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./auth/login";
 import Register from "./auth/register";
+import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
   return (
