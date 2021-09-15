@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import NavBar from "../Componentes/nav-bar";
 import axios from "axios";
+import swal from "sweetalert";
+import { useHistory } from "react-router-dom";
 
 function Register() {
+  const history = useHistory();
   const [registerInput, setRegister] = useState({
     name: "",
     email: "",
     password: "",
+    error_list: [],
   });
 
   const handleInput = (e) => {
-    e.presist();
+    e.persist();
     setRegister({ ...registerInput, [e.target.name]: e.target.value });
   };
 
@@ -23,7 +27,21 @@ function Register() {
       password: registerInput.password,
     };
 
-    axios.post(`http://localhost:8000/api/register`, data).then((res) => {});
+    axios.get("/sanctum/csrf-cookie").then((response) => {
+      axios.post(`/api/register`, data).then((res) => {
+        if (res.data.status === 200) {
+          localStorage.setItem("auth_token", res.data.token);
+          localStorage.setItem("auth_name", res.data.usarname);
+          swal("Exito", res.data.message, "success");
+          history.push("/");
+        } else {
+          setRegister({
+            ...registerInput,
+            error_list: res.data.validation_errors,
+          });
+        }
+      });
+    });
   };
 
   return (
@@ -47,6 +65,7 @@ function Register() {
                       value={registerInput.name}
                       className="form-control"
                     ></input>
+                    <span>{registerInput.error_list.name}</span>
                   </div>
                   <div className="form-group mb-3">
                     <label>Email</label>
@@ -57,6 +76,7 @@ function Register() {
                       value={registerInput.email}
                       className="form-control"
                     ></input>
+                    <span>{registerInput.error_list.email}</span>
                   </div>
                   <div className="form-group mb-3">
                     <label>Contraseña</label>
@@ -67,8 +87,9 @@ function Register() {
                       value={registerInput.password}
                       className="form-control"
                     ></input>
+                    <span>{registerInput.error_list.password}</span>
                   </div>
-                  <div className="form-group mb-3">
+                  {/* <div className="form-group mb-3">
                     <label>Confirmar contraseña</label>
                     <input
                       type=""
@@ -77,7 +98,7 @@ function Register() {
                       value={registerInput.confirm_password}
                       className="form-control"
                     ></input>
-                  </div>
+                  </div> */}
                   <div className="form-group mb-3">
                     <button type="submit" className="btn btn-primary">
                       Register
