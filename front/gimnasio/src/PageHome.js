@@ -4,14 +4,12 @@ import ReactDOM from "react-dom";
 import NavBar from "./Componentes/nav-bar";
 import { BrowserRouter as Router } from "react-router-dom";
 
-class PageHome extends React.Component {
-  render() {
-    return (
-      <Router>
-        <NavBar />
-      </Router>
-    );
-  }
+function PageHome() {
+  return (
+    <div>
+      <NavBar />
+    </div>
+  );
 }
 
 export default PageHome;
