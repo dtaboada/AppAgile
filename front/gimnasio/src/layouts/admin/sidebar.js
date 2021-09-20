@@ -6,14 +6,20 @@ const Sidebar = () => {
     <nav className="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
       <div className="sb-sidenav-menu">
         <div className="nav">
-          <div className="sb-sidenav-menu-heading">Horarios</div>
-          <Link className="nav-link" to="/admin">
+          <div className="sb-sidenav-menu-heading">Agenda</div>
+          <Link className="nav-link" to="/admin/hour">
             <div className="sb-nav-link-icon">
               <i className="fas fa-tachometer-alt"></i>
             </div>
-            Dashboard
+            Horarios de las clases
           </Link>
-          <div className="sb-sidenav-menu-heading">wod</div>
+          <Link className="nav-link" to="/admin/dashboard">
+            <div className="sb-nav-link-icon">
+              <i className="fas fa-tachometer-alt"></i>
+            </div>
+            Ejercicios del dia
+          </Link>
+          {/* <div className="sb-sidenav-menu-heading">wod</div>
           <Link
             className="nav-link collapsed"
             to="#"
@@ -147,12 +153,11 @@ const Sidebar = () => {
               <i className="fas fa-table"></i>
             </div>
             Tables
-          </Link>
+          </Link> */}
         </div>
       </div>
       <div className="sb-sidenav-footer">
-        <div className="small">Logged in as:</div>
-        Start Bootstrap
+        <div className="small">Grupo numero: 2</div>
       </div>
     </nav>
   );

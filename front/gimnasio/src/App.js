@@ -12,6 +12,7 @@ import Login from "./auth/login";
 import Register from "./auth/register";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
+
 import MasterLayout from "./layouts/admin/MasterLayout";
 
 axios.defaults.baseURL = "http://localhost:8000";
@@ -29,7 +30,13 @@ function App() {
     <div class="App">
       <Router>
         <Switch>
-          <Route path="/admin/dashboard" component={MasterLayout} />
+          <Route exact path="/" component={PageHome} />
+          <Route
+            path="/admin"
+            name="Admin"
+            render={(props) => <MasterLayout {...props} />}
+          />
+
           <Route exact path="/" component={PageHome}></Route>
           {/* <Route exact path="/login" component={Login}></Route>
           <Route exact path="/register" component={Register}></Route> */}

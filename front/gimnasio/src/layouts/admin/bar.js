@@ -8,7 +8,7 @@ const Bar = () => {
         Administrador
       </Link>
 
-      <button
+      {/* <button
         className="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
         id="sidebarToggle"
         to="#!"
@@ -33,9 +33,9 @@ const Bar = () => {
             <i className="fas fa-search"></i>
           </button>
         </div>
-      </form>
+      </form> */}
 
-      <ul className="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+      {/* <ul className="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
         <li className="nav-item dropdown">
           <Link
             to="#"
@@ -71,7 +71,7 @@ const Bar = () => {
             </li>
           </ul>
         </li>
-      </ul>
+      </ul> */}
     </nav>
   );
 };
