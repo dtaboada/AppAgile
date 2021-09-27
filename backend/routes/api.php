@@ -10,12 +10,17 @@ Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
+    
+    Route::get('/checkingAuthenticated', function() {
+        return response()->json(['message'=>'Estas en','status'=>200], 200);
+    });
+    
     Route::post('logout', [AuthController::class, 'logout']);
 
     // Ejercicios
     Route::post('wod-dashboard', [DashboardController::class,'wod']);
 });
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });

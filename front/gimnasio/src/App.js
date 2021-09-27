@@ -12,7 +12,7 @@ import Login from "./auth/login";
 import Register from "./auth/register";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
-
+import AdminPrivateRoute from "./AdminPrivateRoute";
 import MasterLayout from "./layouts/admin/MasterLayout";
 
 axios.defaults.baseURL = "http://localhost:8000";
@@ -31,11 +31,11 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={PageHome} />
-          <Route
+          {/* <Route
             path="/admin"
             name="Admin"
             render={(props) => <MasterLayout {...props} />}
-          />
+          /> */}
 
           <Route exact path="/" component={PageHome}></Route>
           {/* <Route exact path="/login" component={Login}></Route>
@@ -51,9 +51,11 @@ function App() {
             {localStorage.getItem("auth_token") ? (
               <Redirect to="/" />
             ) : (
-              <Register />
+              <Register path="/admin" name="Admin" />
             )}
           </Route>
+
+          <AdminPrivateRoute />
         </Switch>
       </Router>
     </div>
