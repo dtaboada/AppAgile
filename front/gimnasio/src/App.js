@@ -11,9 +11,11 @@ import {
 import Login from "./auth/login";
 import Register from "./auth/register";
 import "bootstrap/dist/css/bootstrap.css";
+import Page403 from "./Componentes/error/Page403";
+import Page404 from "./Componentes/error/Page404";
 import axios from "axios";
 import AdminPrivateRoute from "./AdminPrivateRoute";
-import MasterLayout from "./layouts/admin/MasterLayout";
+import masterLayout from "./layouts/admin/MasterLayout";
 
 axios.defaults.baseURL = "http://localhost:8000";
 axios.defaults.headers.post["Content-Type"] = "application/json";
@@ -38,6 +40,9 @@ function App() {
           /> */}
 
           <Route exact path="/" component={PageHome}></Route>
+          <Route path="/403" component={Page403} />
+          <Route path="/404" component={Page404} />
+
           {/* <Route exact path="/login" component={Login}></Route>
           <Route exact path="/register" component={Register}></Route> */}
           <Route path="/login">
