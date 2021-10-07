@@ -7,6 +7,7 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
+import AdminPrivateRoute from "./AdminPrivateRoute.js";
 
 import Login from "./auth/login";
 import Register from "./auth/register";
@@ -31,11 +32,11 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={PageHome} />
-          <Route
+          {/* <Route
             path="/admin"
             name="Admin"
             render={(props) => <MasterLayout {...props} />}
-          />
+          /> */}
 
           <Route exact path="/" component={PageHome}></Route>
           {/* <Route exact path="/login" component={Login}></Route>
@@ -54,6 +55,7 @@ function App() {
               <Register />
             )}
           </Route>
+          <AdminPrivateRoute path="/admin" name="Admin" />
         </Switch>
       </Router>
     </div>
