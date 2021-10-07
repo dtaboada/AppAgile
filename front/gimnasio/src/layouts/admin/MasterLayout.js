@@ -8,7 +8,7 @@ import "../../assets/admin/js/scripts";
 import routes from "../../routers/routes.js";
 import { Switch, Route, Redirect } from "react-router";
 
-const masterLayout = () => {
+const MasterLayout = () => {
   return (
     <div className="sb-nav-fixed">
       <Bar />
@@ -42,4 +42,4 @@ const masterLayout = () => {
   );
 };
 
-export default masterLayout;
+export default MasterLayout;

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Route, Redirect, useHistory } from "react-router";
 import swal from "sweetalert";
-import masterLayout from "./layouts/admin/MasterLayout";
+import MasterLayout from "./layouts/admin/masterLayout";
 
 function AdminPrivateRoute({ ...rest }) {
   const history = useHistory();
@@ -41,7 +41,7 @@ function AdminPrivateRoute({ ...rest }) {
       {...rest}
       render={({ props, location }) =>
         Authenticated ? (
-          <masterLayout {...props} />
+          <MasterLayout {...props} />
         ) : (
           <Redirect to={{ pathname: "/login", state: { from: location } }} />
         )
