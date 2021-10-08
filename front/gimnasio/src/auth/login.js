@@ -29,6 +29,7 @@ function Login() {
           localStorage.setItem("auth_token", res.data.token);
           localStorage.setItem("auth_name", res.data.usarname);
           swal("Login exitoso", res.data.message, "success");
+
           history.push("/");
         } else if (res.data.status === 401) {
           swal("Cuidado", res.data.message, "warning");

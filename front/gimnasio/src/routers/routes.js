@@ -10,6 +10,12 @@ const routes = [
     component: Dashboard,
   },
   { path: "/admin/hour", exact: true, name: "Hour", component: Hour },
+  // {
+  //   path: "/admin/ejercicios",
+  //   exact: true,
+  //   name: "Ejercicios",
+  //   component: Ejercicios,
+  // },
 ];
 
 export default routes;

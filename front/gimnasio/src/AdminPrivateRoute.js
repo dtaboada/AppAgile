@@ -32,6 +32,24 @@ function AdminPrivateRoute({ ...rest }) {
     }
   );
 
+  axios.interceptors.response.use(
+    function (response) {
+      return response;
+    },
+    function (error) {
+      if (error.response.status === 403) {
+        // Acceso denegado
+        swal("Prohibido", error.response.data.message, "warning");
+        history.push("/403");
+      } else if (error.response.status === 404) {
+        // Pagina no funciona
+        swal("404 Error", "Url/Page no funciona", "warning");
+        history.push("/404");
+      }
+      return Promise.reject(error);
+    }
+  );
+
   if (loading) {
     return <h1>Cargando...</h1>;
   }

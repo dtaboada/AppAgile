@@ -9,6 +9,8 @@ import {
 } from "react-router-dom";
 import AdminPrivateRoute from "./AdminPrivateRoute.js";
 import MasterLayout from "./layouts/admin/masterLayout";
+import Page403 from "./Componentes/error/Page403";
+import Page404 from "./Componentes/error/Page404";
 import Login from "./auth/login";
 import Register from "./auth/register";
 import "bootstrap/dist/css/bootstrap.css";
@@ -30,6 +32,10 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={PageHome} />
+
+          <Route path="/403" component={Page403} />
+          <Route path="/404" component={Page404} />
+
           {/* <Route
             path="/admin"
             name="Admin"
