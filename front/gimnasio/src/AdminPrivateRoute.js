@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Route, Redirect, useHistory } from "react-router";
 import swal from "sweetalert";
-import MasterLayout from "./layouts/admin/masterLayout";
+import MasterLayout from "./layouts/admin/MasterLayout";
 
 function AdminPrivateRoute({ ...rest }) {
   const history = useHistory();

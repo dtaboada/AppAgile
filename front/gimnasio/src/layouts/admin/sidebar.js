@@ -13,7 +13,7 @@ const Sidebar = () => {
             </div>
             Horarios de las clases
           </Link>
-          <Link className="nav-link" to="/admin/dashboard">
+          <Link className="nav-link" to="/admin/wod-dashboard">
             <div className="sb-nav-link-icon">
               <i className="fas fa-tachometer-alt"></i>
             </div>

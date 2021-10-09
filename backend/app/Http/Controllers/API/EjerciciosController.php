@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Ejercicios;
+use Illuminate\Support\Facades\Validator;
 
 class EjerciciosController extends Controller
 {
@@ -28,7 +29,7 @@ class EjerciciosController extends Controller
             $ejercicios->save();
             return response()->json([
                 'status'=>200,
-                'status'=>"Ejercicio agregadoS"
+                'message'=>"Planificacion del dia agregada correctamente"
             ]);
         }
     }

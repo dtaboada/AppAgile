@@ -4,7 +4,7 @@ import Hour from "../Componentes/admin/Hour.js";
 const routes = [
   { path: "/admin", exact: true, name: "Admin" },
   {
-    path: "/admin/dashboard",
+    path: "/admin/wod-dashboard",
     exact: true,
     name: "Dashboard",
     component: Dashboard,

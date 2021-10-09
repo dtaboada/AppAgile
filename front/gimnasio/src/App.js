@@ -8,7 +8,7 @@ import {
   Switch,
 } from "react-router-dom";
 import AdminPrivateRoute from "./AdminPrivateRoute.js";
-import MasterLayout from "./layouts/admin/masterLayout";
+import MasterLayout from "./layouts/admin/MasterLayout";
 import Page403 from "./Componentes/error/Page403";
 import Page404 from "./Componentes/error/Page404";
 import Login from "./auth/login";

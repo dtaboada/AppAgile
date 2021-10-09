@@ -6,6 +6,7 @@ import { useState } from "react";
 function Dashboard() {
   const [dashboardInput, setDashboard] = useState({
     wod: "",
+    status: "",
     error_list: [],
   });
 
@@ -19,17 +20,19 @@ function Dashboard() {
 
     const data = {
       wod: dashboardInput.wod,
+      status: dashboardInput.status,
     };
 
     axios.post(`/api/wod-dashboard`, data).then((res) => {
       if (res.data.status === 200) {
-        swal("Success", res.data.message, "Agregado");
+        swal("Agredado correctamente", res.data.message, "success");
         document.getElementById("dashboard_form").reset();
       } else if (res.data.status === 400) {
         setDashboard({ ...dashboardInput, error_list: res.data.errors });
       }
     });
   };
+
   return (
     <div className="container-fluid px-4">
       <h1 className="mt-4">Ejercicios</h1>
@@ -72,7 +75,7 @@ function Dashboard() {
             aria-labelledby="home-tab"
           >
             <div className="form-group mb-3">
-              <label>Ejemplo</label>
+              <label>Wod del dia</label>
               <textarea
                 type="text"
                 name="wod"
@@ -80,6 +83,7 @@ function Dashboard() {
                 value={dashboardInput.wod}
                 className="form-control"
               ></textarea>
+              <span>{dashboardInput.error_list.wod}</span>
             </div>
           </div>
           <div
