@@ -11,10 +11,10 @@ const routes = [
   },
   { path: "/admin/hour", exact: true, name: "Hour", component: Hour },
   // {
-  //   path: "/admin/ejercicios",
+  //   path: "/WODs",
   //   exact: true,
-  //   name: "Ejercicios",
-  //   component: Ejercicios,
+  //   name: "Wods",
+  //   component: ViewWods,
   // },
 ];
 

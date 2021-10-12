@@ -1,19 +1,22 @@
-import logo from "./logo.svg";
 import "./App.css";
-import PageHome from "./PageHome.js";
+
 import {
   BrowserRouter as Router,
   Redirect,
   Route,
   Switch,
 } from "react-router-dom";
-import AdminPrivateRoute from "./AdminPrivateRoute.js";
-import MasterLayout from "./layouts/admin/MasterLayout";
-import Page403 from "./Componentes/error/Page403";
-import Page404 from "./Componentes/error/Page404";
+import PublicRoute from "./PublicRoute";
+
+// import MasterLayout from "./layouts/admin/MasterLayout";
+
 import Login from "./auth/login";
 import Register from "./auth/register";
-import "bootstrap/dist/css/bootstrap.css";
+import AdminPrivateRoute from "./AdminPrivateRoute.js";
+import Page403 from "./Componentes/error/Page403";
+import Page404 from "./Componentes/error/Page404";
+
+// import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:8000";
@@ -31,8 +34,10 @@ function App() {
     <div class="App">
       <Router>
         <Switch>
-          <Route exact path="/" component={PageHome} />
-
+          {/* <Route exact path="/" component={PageHome} />
+          <Route exact path="/contacto" component={Contacto} /> */}
+          <AdminPrivateRoute path="/admin" name="Admin" />
+          <PublicRoute path="/" name="PageHome" />
           <Route path="/403" component={Page403} />
           <Route path="/404" component={Page404} />
 
@@ -42,7 +47,7 @@ function App() {
             render={(props) => <MasterLayout {...props} />}
           /> */}
 
-          <Route exact path="/" component={PageHome}></Route>
+          {/* <Route exact path="/" component={PageHome}></Route> */}
           {/* <Route exact path="/login" component={Login}></Route>
           <Route exact path="/register" component={Register}></Route> */}
           <Route path="/login">
@@ -59,7 +64,6 @@ function App() {
               <Register />
             )}
           </Route>
-          <AdminPrivateRoute path="/admin" name="Admin" />
         </Switch>
       </Router>
     </div>
