@@ -85,6 +85,11 @@ function NavBar() {
               </Link>
             </li>
             <li className="nav-item">
+              <Link className="nav-link active" to="/wods">
+                Wods
+              </Link>
+            </li>
+            <li className="nav-item">
               <Link className="nav-link active" to="/contacto">
                 Contacto
               </Link>

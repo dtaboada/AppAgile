@@ -4,10 +4,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\EjerciciosController;
+use App\Http\Controllers\API\FrontendController;
+
 
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
+Route::get('getEjercicios', [FrontendController::class, 'ejercicios']);
 
 Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function () {
 
