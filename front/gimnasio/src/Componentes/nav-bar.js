@@ -4,20 +4,6 @@ import { Link, useHistory } from "react-router-dom";
 
 import swal from "sweetalert";
 
-// import "./nav-bar.css";
-// import {
-//   Nav,
-//   NavLink,
-//   Bars,
-//   NavMenu,
-//   NavLink,
-//   NavBtn,
-//   NavBtnLink,
-// } from "./navBarElements";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faBars } from "@fortawesome/free-solid-svg-icons";
-// import logo from "../fitness.jpg";
-
 function NavBar() {
   const history = useHistory();
   const logoutSubmit = (e) => {
@@ -65,7 +51,7 @@ function NavBar() {
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow sticky-top">
       <div className="container">
         <Link className="navbar-brand" to="#">
-          Navbar
+          GymFit
         </Link>
         <button
           className="navbar-toggler"
@@ -87,6 +73,11 @@ function NavBar() {
             <li className="nav-item">
               <Link className="nav-link active" to="/wods">
                 Wods
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link active" to="/horarios">
+                Horarios
               </Link>
             </li>
             <li className="nav-item">

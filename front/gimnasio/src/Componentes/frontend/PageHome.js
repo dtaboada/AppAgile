@@ -1,11 +1,8 @@
 import React from "react";
+import fit from "../../assets/admin/assets/img/fit.jpeg";
 
 function PageHome() {
-  return (
-    <div>
-      <h1>Soy la pagina principal</h1>
-    </div>
-  );
+  return <img src={fit}></img>;
 }
 
 export default PageHome;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function ViewWods() {
   const [loading, setLoading] = useState(true);
@@ -22,7 +22,7 @@ function ViewWods() {
     var showEjerciciosList = "";
     showEjerciciosList = ejercicios.map((item, idx) => {
       return (
-        <div className="col-md-3" key={idx}>
+        <div className="col-md-2" key={idx}>
           <div className="card">
             <div className="card-body">
               <h5>{item.wod}</h5>
@@ -33,7 +33,7 @@ function ViewWods() {
     });
   }
   return (
-    <div className="py-3 bg-warning">
+    <div className="py-3 bg-success">
       <div className="container">
         <h6>Wods</h6>
         {showEjerciciosList}

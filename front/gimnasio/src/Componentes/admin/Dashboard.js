@@ -49,20 +49,6 @@ function Dashboard() {
               aria-controls="home"
               aria-selected="true"
             >
-              Home
-            </button>
-          </li>
-          <li className="nav-item" role="presentation">
-            <button
-              className="nav-link active"
-              id="home-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#home"
-              type="button"
-              role="tab"
-              aria-controls="home"
-              aria-selected="true"
-            >
               Wods
             </button>
           </li>

@@ -32,5 +32,17 @@ class EjerciciosController extends Controller
                 'message'=>"Planificacion del dia agregada correctamente"
             ]);
         }
+        // if(auth('sanctum')->check()){
+        //     return response()->json([
+        //         'status'=>201,
+        //         'message'=>"i am",
+        //     ]);
+
+        // }else{
+        //     return response()->json([
+        //         'status'=>401,
+        //         'message'=>"Logueate",
+        //     ]);
+        // }
     }
 }
