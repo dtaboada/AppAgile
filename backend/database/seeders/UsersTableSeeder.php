@@ -1,9 +1,8 @@
 <?php
 
 namespace Database\Seeders;
-
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
-
 use DB;
 
 class UsersTableSeeder extends Seeder
@@ -23,7 +22,7 @@ class UsersTableSeeder extends Seeder
           'name' => 'Irene',
           'email' => 'ire@mail.com',
           'password' => bcrypt ('1234'),
-          'remember_token' =>  '1234',
+          'remember_token' =>  Str::random(10),
 
         ]);
 
@@ -31,7 +30,7 @@ class UsersTableSeeder extends Seeder
           'name' => 'Diego',
           'email' => 'die@mail.com',
           'password' => bcrypt ('1234'),
-          'remember_token' => '1234',
+          'remember_token' => Str::random(10),
 
         ]);
 
@@ -39,7 +38,7 @@ class UsersTableSeeder extends Seeder
           'name' => 'Maxi',
           'email' => 'max@mail.com',
           'password' => bcrypt ('1234'),
-          'remember_token' => '1234',
+          'remember_token' => Str::random(10),
 
         ]);
 
@@ -47,7 +46,7 @@ class UsersTableSeeder extends Seeder
           'name' => 'Fede',
           'email' => 'Fefix@mail.com',
           'password' => bcrypt ('1234'),
-          'remember_token' => '1234',
+          'remember_token' => Str::random(10),
 
         ]);
 
@@ -55,8 +54,9 @@ class UsersTableSeeder extends Seeder
           'name' => 'Marce',
           'email' => 'Marchelo@mail.com',
           'password' => bcrypt ('1234'),
-          'remember_token' => '1234',
+          'remember_token' => Str::random(10),
 
         ]);
     }
 }
+
