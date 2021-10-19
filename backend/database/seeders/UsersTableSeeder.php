@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+use DB;
+
 class UsersTableSeeder extends Seeder
 {
     /**
@@ -13,13 +15,15 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        //
+  
         DB::table('users')->truncate();
 
         DB::table('users')->insert([
           'name' => 'Irene',
           'email' => 'ire@mail.com',
           'password' => bcrypt ('1234'),
-          'remember_token' => str_random(10),
+          'remember_token' =>  '1234',
 
         ]);
 
@@ -27,11 +31,32 @@ class UsersTableSeeder extends Seeder
           'name' => 'Diego',
           'email' => 'die@mail.com',
           'password' => bcrypt ('1234'),
-          'remember_token' => str_random(10),
-          
+          'remember_token' => '1234',
+
         ]);
-    
-    
-        
+
+        DB::table('users')->insert([
+          'name' => 'Maxi',
+          'email' => 'max@mail.com',
+          'password' => bcrypt ('1234'),
+          'remember_token' => '1234',
+
+        ]);
+
+        DB::table('users')->insert([
+          'name' => 'Fede',
+          'email' => 'Fefix@mail.com',
+          'password' => bcrypt ('1234'),
+          'remember_token' => '1234',
+
+        ]);
+
+        DB::table('users')->insert([
+          'name' => 'Marce',
+          'email' => 'Marchelo@mail.com',
+          'password' => bcrypt ('1234'),
+          'remember_token' => '1234',
+
+        ]);
     }
 }
