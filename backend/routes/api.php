@@ -6,7 +6,7 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\EjerciciosController;
 use App\Http\Controllers\API\HorarioController;
 use App\Http\Controllers\API\FrontendController;
-
+use Illuminate\Database\Eloquent\Delete;
 
 
 Route::post('register', [AuthController::class, 'register']);
@@ -23,6 +23,7 @@ Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function () {
     
     Route::post('hour',[HorarioController::class, 'hora']);
     Route::post('wod-dashboard',[EjerciciosController::class, 'wod']);
+    Route::delete('deleteEjercicio/{idx}',[EjerciciosController::class, 'destroy']);
     
 
 });
