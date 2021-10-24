@@ -15,6 +15,7 @@ Route::get('getEjercicios', [FrontendController::class, 'ejercicios']);
 Route::get('getHorarios', [FrontendController::class, 'horarios']);
 
 
+
 Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function () {
 
     Route::get('/checkingAuthenticated', function(){
@@ -23,8 +24,10 @@ Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function () {
     
     Route::post('hour',[HorarioController::class, 'hora']);
     Route::post('wod-dashboard',[EjerciciosController::class, 'wod']);
+
     Route::delete('deleteEjercicio/{idx}',[EjerciciosController::class, 'destroy']);
-    
+    Route::delete('deleteHorario/{idx}', [HorarioController::class, 'destroy']);
+
 
 });
 
