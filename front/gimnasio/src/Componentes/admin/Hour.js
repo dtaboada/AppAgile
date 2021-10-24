@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import swal from "sweetalert";
 import { useState } from "react";
+import TablaHorario from "../tablaHorario/tablaHorario";
 
 function Hour() {
   const [horarioInput, setHorario] = useState({
@@ -22,10 +23,18 @@ function Hour() {
       hora: horarioInput.hora,
       status: horarioInput.status,
     };
+    
+    /*mostrarModalInsertar=()=> {
+      this.setState({modalInsertar:true});
+    }
+
+    ocultarModalInsertar=()=> {
+      this.setState({modalInsertar:false});
+    }*/
 
     axios.post(`/api/hour`, data).then((res) => {
       if (res.data.status === 200) {
-        swal("Agredado correctamente", res.data.message, "success");
+        swal("Agregado correctamente", res.data.message, "success");
         document.getElementById("horario_form").reset();
       } else if (res.data.status === 400) {
         setHorario({ ...horarioInput, error_list: res.data.errors });
@@ -33,7 +42,16 @@ function Hour() {
     });
   };
 
-  return (
+  
+  /*insertarElemento=()=>{
+    var valorNuevo={...this.state.form};
+    valorNuevo.id=this.state.data.length+1;
+    var lista=this.state.data;
+    lista.push(valorNuevo);
+    this.setState({data: lista})
+  }*/
+
+  return ( <>
     <div className="container-fluid px-4">
       <h1 className="mt-4">Horarios</h1>
       <form onSubmit={submitHorario} id="horario_form">
@@ -79,12 +97,19 @@ function Hour() {
             aria-labelledby="profile-tab"
           ></div>
         </div>
-        <button type="submit" className="btn btn-primary px-4 float-end">
+        <button type="submit" className="btn btn-success px-4 float-end">
           Agregar horario
         </button>
       </form>
     </div>
+    <div> 
+      <TablaHorario>
+
+      </TablaHorario>
+    </div>
+    </>
   );
 }
 
 export default Hour;
+

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Horario;
-
+use Illuminate\Database\Eloquent\Delete;
 
 class HorarioController extends Controller
 {
@@ -35,5 +35,15 @@ class HorarioController extends Controller
 
        
 
+    }
+
+    public function destroy( $idx)
+    {
+        $horarios = Horario::find($idx);
+        $horarios -> delete();
+        return response()->json([
+            'status'=>200,
+            'horarios'=>$horarios,
+        ]);
     }
 }

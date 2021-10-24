@@ -26,4 +26,6 @@ class FrontendController extends Controller
             'horarios'=>$horarios,
         ]);
     }
+
+    
 }
