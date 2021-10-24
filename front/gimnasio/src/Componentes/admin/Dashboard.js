@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import swal from "sweetalert";
 import { useState } from "react";
+import TablaEjercicios from "../tablaEjercicios/tablaEjecicios"  ;
 
 function Dashboard() {
   const [dashboardInput, setDashboard] = useState({
@@ -80,9 +81,15 @@ function Dashboard() {
           ></div>
         </div>
         <button type="submit" className="btn btn-primary px-4 float-end">
-          Boton
+          Guardar
         </button>
-      </form>
+        <div>
+          <TablaEjercicios>
+            
+          </TablaEjercicios>
+
+        </div>
+     </form>
     </div>
   );
 }

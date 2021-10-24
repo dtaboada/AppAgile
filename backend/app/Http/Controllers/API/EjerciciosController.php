@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Ejercicios;
 use Illuminate\Support\Facades\Validator;
 
+use Illuminate\Database\Eloquent\Delete;
+
 class EjerciciosController extends Controller
 {
     public function wod(Request $request)
@@ -44,5 +46,18 @@ class EjerciciosController extends Controller
         //         'message'=>"Logueate",
         //     ]);
         // }
+    }
+    public function destroy($idx)
+
+    {
+
+        $ejercicio = Ejercicios::find($idx);
+
+        $ejercicio -> delete();
+        return response()->json([
+            'status'=>200,
+            'ejercicio'=>$ejercicio,
+        ]);
+
     }
 }
