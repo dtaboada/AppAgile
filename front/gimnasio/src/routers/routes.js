@@ -1,5 +1,6 @@
 import Dashboard from "../Componentes/admin/Dashboard.js";
 import Hour from "../Componentes/admin/Hour.js";
+import ModiHour from "../Componentes/admin/ModiHour.js";
 
 const routes = [
   { path: "/admin", exact: true, name: "Admin" },
@@ -16,6 +17,10 @@ const routes = [
      name: "Wods",
      component: ViewWods,
    }, */
+
+   { path: "/admin/modihour", exact: true, name: "ModiHour", component: ModiHour }, 
+
+
 ];
 
 export default routes;

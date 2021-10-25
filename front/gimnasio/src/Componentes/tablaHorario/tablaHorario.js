@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-
+import {Link } from "react-router-dom";
 
 
 const TablaHorarios = () => {
@@ -20,10 +20,7 @@ const TablaHorarios = () => {
   },[]);
 
  
-  
-
   const eliminarElemento = (idx) => {
-    //axios.delete(`/api/deleteHorario/${idx}`);
     axios.post(`/api/deleteHorario/${idx}`, {
       _method: 'DELETE'
     })
@@ -35,7 +32,15 @@ const TablaHorarios = () => {
     })  
   }
 
-  return (
+  function editarElemento(idx) {
+    return(
+      console.log(idx)
+      
+    )
+      
+  }
+
+    return (
   
   !loading ? <p>cargando..</p>:  
   <table class="table">
@@ -52,7 +57,7 @@ const TablaHorarios = () => {
       <td>{item.id}</td>
       <td>{item.hora}</td>
       <td><button type="button" className="btn btn-danger" onClick={() => eliminarElemento(item.id)}>Eliminar</button> {"   "}
-          <button type="button" className="btn btn-primary">Editar</button></td>
+          <button type="button" className="btn btn-primary" onClick={() => editarElemento(item.id)} >Editar</button></td>
 
     </tr>)
     })
