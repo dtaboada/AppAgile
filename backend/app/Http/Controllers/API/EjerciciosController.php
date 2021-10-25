@@ -47,17 +47,25 @@ class EjerciciosController extends Controller
         //     ]);
         // }
     }
-    public function destroy($idx)
+    public function destroy($id)
 
     {
 
-        $ejercicio = Ejercicios::find($idx);
+        $ejercicio = Ejercicios::find($id);
 
-        $ejercicio -> delete();
-        return response()->json([
+        if($ejercicio){
+            $ejercicio -> delete();
+            return response()->json([
             'status'=>200,
-            'ejercicio'=>$ejercicio,
+            'message'=>'Ejercicio eliminado correctamente'
         ]);
+        }else{
+            return response()->json([
+                'status'=>404,
+                'message'=>'Ejercicio no encontrado'
+            ]);
+        }
+        
 
     }
 }
