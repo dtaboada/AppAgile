@@ -24,6 +24,8 @@ Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function () {
     
     Route::post('hour',[HorarioController::class, 'hora']);
     Route::post('wod-dashboard',[EjerciciosController::class, 'wod']);
+    Route::get('edit-ejercicios/{id}', [EjerciciosController::class, 'edit']);
+    Route::put('update-ejercicios/{id}',[EjerciciosController::class, 'update']);
 
     Route::delete('delete-ejercicios/{id}',[EjerciciosController::class, 'destroy']);
     Route::delete('deleteHorario/{idx}', [HorarioController::class, 'destroy']);

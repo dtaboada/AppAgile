@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import swal from "sweetalert";
+import { Link } from "react-router-dom";
 
 const TablaEjercicios = () => {
   const [loading, setLoading] = useState(true);
@@ -43,7 +44,7 @@ const TablaEjercicios = () => {
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Hora</th>
+          <th scope="col">Wod</th>
           <th scope="col">Accion</th>
         </tr>
       </thead>
@@ -62,9 +63,12 @@ const TablaEjercicios = () => {
                   Eliminar
                 </button>{" "}
                 {"   "}
-                <button type="button" className="btn btn-primary">
+                <Link
+                  to={`edit-ejercicios/${item.id}`}
+                  className="btn btn-success btn-sm"
+                >
                   Editar
-                </button>
+                </Link>
               </td>
             </tr>
           );

@@ -47,6 +47,25 @@ class EjerciciosController extends Controller
         //     ]);
         // }
     }
+
+    public function edit($id){
+        $ejercicio = Ejercicios::find($id);
+        if($ejercicio)
+        {
+            return response()->json([
+                'status'=>200,
+                'ejercicio'=>$ejercicio
+            ]);
+        }
+        else 
+        {
+            return respoonse()->json([
+                'status'=>404,
+                'message'=>'Ejercicio no encontrado'
+            ]);
+        }
+    }
+    
     public function destroy($id)
 
     {
@@ -67,5 +86,40 @@ class EjerciciosController extends Controller
         }
         
 
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'wod'=>'required',
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status'=>422,
+                'errors'=>$validator->messages(),
+            ]);
+        }
+        else
+        {
+
+            $ejercicio = Ejercicios::find($id);
+            if($ejercicio)
+            {
+                $ejercicio-> wod = $request->input('wod');
+                $ejercicio->status = $request->input('status') == true ? '1':'0';
+                $ejercicio->save();
+                return response()->json([
+                    'status'=>200,
+                    'message'=>"Wod del dia modificado correctamente"
+                ]);              
+            }
+            else{
+                return response()->json([
+                    'status'=>404,
+                    'message'=>"Ejercicio no encontrado"
+                ]);  
+            }
+          
+        }
     }
 }
