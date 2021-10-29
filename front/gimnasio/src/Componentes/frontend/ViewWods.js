@@ -22,9 +22,9 @@ function ViewWods() {
     var showEjerciciosList = "";
     showEjerciciosList = ejercicios.map((item, idx) => {
       return (
-        <div className="col-md-2" key={idx}>
-          <div className="card">
-            <div className="card-body">
+        <div id="ejercicios_wood" className="container" key={idx} >
+          <div className="row">
+            <div id="texto-wod" className="col-sm">
               <h5>{item.wod}</h5>
             </div>
           </div>
@@ -34,7 +34,7 @@ function ViewWods() {
   }
   return (
     <div className="py-3 bg-success">
-      <div className="container">
+      <div id="caja_wods" className="container">
         <h6>Wods</h6>
         {showEjerciciosList}
       </div>
