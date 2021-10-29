@@ -1,6 +1,7 @@
 import Dashboard from "../Componentes/admin/Dashboard.js";
 import Hour from "../Componentes/admin/Hour.js";
 import EditEjercicios from "../Componentes/admin/EditEjercicios.js";
+import EditHorarios from "../Componentes/admin/EditHorarios.js"
 
 const routes = [
   { path: "/admin", exact: true, name: "Admin" },
@@ -10,12 +11,19 @@ const routes = [
     name: "Dashboard",
     component: Dashboard,
   },
+  
   { path: "/admin/hour", exact: true, name: "Hour", component: Hour },
   {
     path: "/admin/edit-ejercicios/:id",
     exact: true,
     name: "EditEjercicios",
     component: EditEjercicios,
+  },
+  {
+    path: "/admin/edit-horarios/:id",
+    exact: true,
+    name: "EditHorarios",
+    component: EditHorarios,
   },
 
   /* {

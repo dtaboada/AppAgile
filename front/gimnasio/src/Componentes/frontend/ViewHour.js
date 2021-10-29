@@ -25,9 +25,9 @@ function ViewHour() {
         <div className="col-md-3" key={idx}>
           <div className="card">
             <div className="card-body">
-              <Link to="/hour">
+           
                 <h5>{item.hora}</h5>
-              </Link>
+ 
             </div>
           </div>
         </div>

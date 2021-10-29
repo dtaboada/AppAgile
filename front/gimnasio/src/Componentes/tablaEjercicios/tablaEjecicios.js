@@ -28,15 +28,16 @@ const TablaEjercicios = () => {
 
     axios.delete(`/api/delete-ejercicios/${id}`).then((res) => {
       if (res.data.status === 200) {
-        swal("Success", res.data.message, "success");
+        swal("Eliminado", res.data.message, "success");
         thisClicked.closest("tr").remove();
       } else if (res.data.status === 404) {
-        swal("Success", res.data.message, "success");
+        swal("Error", res.data.message, "success");
         thisClicked.innerText = "Eliminado";
       }
     });
   };
 
+  
   return !loading ? (
     <p>cargando..</p>
   ) : (
@@ -65,7 +66,7 @@ const TablaEjercicios = () => {
                 {"   "}
                 <Link
                   to={`edit-ejercicios/${item.id}`}
-                  className="btn btn-success btn-sm"
+                  className="btn btn-success"
                 >
                   Editar
                 </Link>

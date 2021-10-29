@@ -3,36 +3,36 @@ import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import swal from "sweetalert";
 
-function EditEjercicios(props) {
+function EditHorarios(props) {
   const history = useHistory();
 
   const [loading, setLoading] = useState(true);
-  const [dashboardInput, setEjercicio] = useState([]);
+  const [horarioInput, setHorario] = useState([]);
   const [error, setError] = useState([]);
 
   useEffect(() => {
-    const ejercicio_id = props.match.params.id;
-    axios.get(`/api/edit-ejercicios/${ejercicio_id}`).then((res) => {
+    const horario_id = props.match.params.id;
+    axios.get(`/api/edit-horarios/${horario_id}`).then((res) => {
       if (res.data.status === 200) {
-        setEjercicio(res.data.ejercicio);
+        setHorario(res.data.horario);
       } else if (res.data.status === 404) {
         swal("Error", res.data.message, "error");
-        history.push("admin/wod-dashboard");
+        history.push("admin/hour");
       }
       setLoading(false);
     });
   }, [props.match.params.id, history]);
   const handleInput = (e) => {
     e.persist();
-    setEjercicio({ ...dashboardInput, [e.target.name]: e.target.value });
+    setHorario({ ...horarioInput, [e.target.name]: e.target.value });
   };
 
-  const updateEjercicio = (e) => {
+  const updateHorario = (e) => {
     e.preventDefault();
 
-    const ejercicio_id = props.match.params.id;
-    const data = dashboardInput;
-    axios.put(`api/update-ejercicios/${ejercicio_id}`, data).then((res) => {
+    const horario_id = props.match.params.id;
+    const data = horarioInput;
+    axios.put(`api/update-horarios/${horario_id}`, data).then((res) => {
       if (res.data.status === 200) {
         swal("Editado", res.data.message, "success");
         setError([]);
@@ -41,13 +41,13 @@ function EditEjercicios(props) {
         setError(res.data.errors);
       } else if (res.data.status === 404) {
         swal("Error", res.data.message, "error");
-        history.push("admin/wod-dashboard");
+        history.push("admin/hour");
       }
     });
   };
 
   if (loading) {
-    return <h4>Cargando Ejercicios...</h4>;
+    return <h4>Cargando Horarios...</h4>;
   }
   return (
     <div className="container px-4">
@@ -55,16 +55,16 @@ function EditEjercicios(props) {
         <div className="card-header">
           <h4>
             {" "}
-            Editar Ejercicio
+            Editar Horario
             <Link
-              to="/admin/wod-dashboard"
+              to="/admin/hour"
               className="btn btn-primary btn-sm float-end"
             >
               VOLVER
             </Link>
           </h4>
         </div>
-        <form onSubmit={updateEjercicio}>
+        <form onSubmit={updateHorario}>
           <ul className="nav nav-tabs" id="myTab" role="tablist">
             <li className="nav-item" role="presentation">
               <button
@@ -77,7 +77,7 @@ function EditEjercicios(props) {
                 aria-controls="home"
                 aria-selected="true"
               >
-                Wods
+                Clase y horario
               </button>
             </li>
           </ul>
@@ -89,15 +89,15 @@ function EditEjercicios(props) {
               aria-labelledby="home-tab"
             >
               <div className="form-group mb-3">
-                <label>Wod del dia</label>
+         
                 <textarea
                   type="text"
-                  name="wod"
+                  name="hora"
                   onChange={handleInput}
-                  value={dashboardInput.wod}
+                  value={horarioInput.hora}
                   className="form-control"
                 ></textarea>
-                <small className="text-danger">{error.wod}</small>
+                <small className="text-danger">{error.hora}</small>
               </div>
             </div>
             <div
@@ -116,4 +116,4 @@ function EditEjercicios(props) {
   );
 }
 
-export default EditEjercicios;
+export default EditHorarios;

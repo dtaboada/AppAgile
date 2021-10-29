@@ -28,7 +28,11 @@ Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function () {
     Route::put('update-ejercicios/{id}',[EjerciciosController::class, 'update']);
 
     Route::delete('delete-ejercicios/{id}',[EjerciciosController::class, 'destroy']);
-    Route::delete('deleteHorario/{idx}', [HorarioController::class, 'destroy']);
+    Route::get('edit-horarios/{id}', [HorarioController::class, 'edit']);
+    Route::put('update-horarios/{id}',[HorarioController::class, 'update']);
+
+    Route::delete('delete-horarios/{id}',[HorarioController::class, 'destroy']);
+
 
 
 });

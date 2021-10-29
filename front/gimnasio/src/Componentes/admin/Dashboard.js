@@ -3,6 +3,7 @@ import axios from "axios";
 import swal from "sweetalert";
 import { useState } from "react";
 import TablaEjercicios from "../tablaEjercicios/tablaEjecicios"  ;
+import TablaHorarios from "../tablaHorario/tablaHorario";
 
 function Dashboard() {
   const [dashboardInput, setDashboard] = useState({
@@ -81,7 +82,7 @@ function Dashboard() {
           ></div>
         </div>
         <button type="submit" className="btn btn-primary px-4 float-end">
-          Guardar
+          Agregar Wod
         </button>
         <div>
           <TablaEjercicios>
