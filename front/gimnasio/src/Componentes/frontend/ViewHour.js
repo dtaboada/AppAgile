@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function ViewHour() {
   const [loading, setLoading] = useState(true);
   const [horarios, setHorarios] = useState([]);
-
+// comentario
   useEffect(() => {
     axios.get(`/api/getHorarios`).then((res) => {
       if (res.data.status === 200) {
@@ -15,7 +15,6 @@ function ViewHour() {
       }
     });
   });
-
   if (loading) {
     return <h4>Cargando horarios..</h4>;
   } else {
