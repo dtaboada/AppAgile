@@ -528,6 +528,7 @@ class ComposerStaticInitb7f7f3122a14c0336b6a3f9fc2d24f35
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\API\\AsistController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/AsistController.php',
         'App\\Http\\Controllers\\API\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/AuthController.php',
         'App\\Http\\Controllers\\API\\EjerciciosController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/EjerciciosController.php',
         'App\\Http\\Controllers\\API\\FrontendController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/FrontendController.php',
@@ -551,7 +552,9 @@ class ComposerStaticInitb7f7f3122a14c0336b6a3f9fc2d24f35
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Models\\Ejercicios' => __DIR__ . '/../..' . '/app/Models/Ejercicios.php',
+        'App\\Models\\Horario' => __DIR__ . '/../..' . '/app/Models/Horario.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Models\\UserHorario' => __DIR__ . '/../..' . '/app/Models/UserHorario.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',

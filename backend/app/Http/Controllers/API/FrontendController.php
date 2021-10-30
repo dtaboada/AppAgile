@@ -21,6 +21,8 @@ class FrontendController extends Controller
     public function horarios()
     {
         $horarios = Horario::where('status','0')->get();
+        
+
         return response()->json([
             'status'=>200,
             'horarios'=>$horarios,
@@ -28,4 +30,25 @@ class FrontendController extends Controller
     }
 
     
+    public function GetUserHorarioByHorarioId(){
+        $userId = auth()->user()->id;
+        $horarios = Horario::where('horarios.status','0')
+        ->leftJoin('user_horarios', 'horarios.id', '=', 'user_horarios.horario_id')
+        ->get(['horarios.id',
+        'horarios.hora', 
+        'horarios.cupo', 
+        'user_horarios.asiste']);
+
+        if($horarios){
+            return response()->json([
+                'status'=>200,
+                'horarios'=> $horarios
+            ]);
+        }else{
+            return response()->json([
+                'status'=>404,
+                'message'=> 'User horario not found'
+            ]);
+        }
+    }
 }
