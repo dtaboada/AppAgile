@@ -6,6 +6,7 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\EjerciciosController;
 use App\Http\Controllers\API\HorarioController;
 use App\Http\Controllers\API\FrontendController;
+use App\Http\Controllers\API\AsistController;
 use Illuminate\Database\Eloquent\Delete;
 
 
@@ -38,9 +39,12 @@ Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function () {
 });
 
 Route::middleware(['auth:sanctum'])->group(function () {
-    
+    Route::get('user-horarios', [FrontendController::class, 'GetUserHorarioByHorarioId']);
+    Route::post('asistir', [AsistController::class, 'asistir']);
     Route::post('logout', [AuthController::class, 'logout']);
 });
+
+
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
