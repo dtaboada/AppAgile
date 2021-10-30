@@ -92,7 +92,7 @@ class HorarioController extends Controller
         {
 
             $horarios = Horario::find($id);
-            if($horario)
+            if($horarios)
             {
                 $horarios-> hora = $request->input('hora');
                 $horarios->status = $request->input('status') == true ? '1':'0';
