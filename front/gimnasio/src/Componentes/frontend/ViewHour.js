@@ -15,14 +15,13 @@ function ViewHour() {
       }
     });
   });
-
   if (loading) {
     return <h4>Cargando horarios..</h4>;
   } else {
     var showHorariosList = "";
     showHorariosList = horarios.map((item, idx) => {
       return (
-        <div className="col-md-3" key={idx}>
+        <div id="horarios_wood" className="col-md-3" key={idx}>
           <div className="card">
             <div className="card-body">
            
@@ -35,8 +34,8 @@ function ViewHour() {
     });
   }
   return (
-    <div className="py-3 bg-success">
-      <div className="container">
+    <div  className="py-3 bg-success">
+      <div id="caja_horarios" className="container">
         <h6>Horarios</h6>
         {showHorariosList}
       </div>

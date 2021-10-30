@@ -10,6 +10,66 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+ #horarios_wood{
+  width: 20%;
+  margin: 10px  30px;
+  padding: 20px, 20px;
+  border: 1px solid #000;
+  display: inline-block;
+  border-collapse: separate;
+ }
+
+ #box_contacto{
+  font-size: 20px; 
+  font-weight: 400; 
+  border:1px solid black;
+  text-align: inline-block;
+  border-collapse: separate;
+ }
+#caja_contacto{
+  width: 20%;
+  display: inline-block;
+  border-collapse: separate;
+  text-align: inline-block;
+}
+
+ #contacto{
+   text-align: center;
+   width: 100%;
+  background-image: url(https://media.istockphoto.com/photos/fitness-or-bodybuilding-background-dumbbells-on-gym-floor-top-view-picture-id908224814?s=612x612);
+ }
+#texto-wod {
+  margin: 20px 30px;
+  text-align: left;
+  display:inline-table;
+ 
+  
+
+}
+ #caja_horarios{
+  width: 100%;
+  margin: auto;
+  background-image: url(https://thumbs.dreamstime.com/z/pesa-de-gimnasia-del-metal-con-el-fondo-del-gimnasio-78457375.jpghttps://thumbs.dreamstime.com/b/fondo-abstracto-del-gimnasio-de-la-aptitud-de-la-falta-de-definici%C3%B3n-90863588.jpg);
+
+ }
+ #caja_wods {
+width: 100%;
+margin: auto;
+background-image: url(https://thumbs.dreamstime.com/z/pesa-de-gimnasia-del-metal-con-el-fondo-del-gimnasio-78457375.jpg);
+
+ }
+ #ejercicios_wood {
+  width: 20%;
+  margin: 10px 30px;
+  padding: 20px, 20px;
+  border: 1px solid #000;
+  background-color: white;
+  display: inline-block;
+  border-collapse: separate;
+
+
+ }
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
