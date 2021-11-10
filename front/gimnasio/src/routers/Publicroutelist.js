@@ -6,10 +6,12 @@ import Login from "../auth/login";
 import Register from "../auth/register";
 import ViewWods from "../Componentes/frontend/ViewWods";
 import ViewHour from "../Componentes/frontend/ViewHour";
+import ViewVideos from "../Componentes/frontend/ViewDemo/ViewVideos";
 
 const publicRoutesList = [
   { path: "/", exact: true, name: "Home", component: PageHome },
   { path: "/contacto", exact: true, name: "Contacto", component: Contacto },
+  { path: "/DemoWod", exact: true, name: "ViewVideos", component: ViewVideos},
   { path: "/403", exact: true, name: "Page403", component: Page403 },
   { path: "/404", exact: true, name: "Page404", component: Page404 },
   { path: "/login", exact: true, name: "Login", component: Login },
