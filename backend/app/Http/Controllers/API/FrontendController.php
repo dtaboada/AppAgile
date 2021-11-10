@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Ejercicios;
 use App\Models\Horario;
+use App\Models\Beneficio;
 
 
 class FrontendController extends Controller
@@ -29,7 +30,18 @@ class FrontendController extends Controller
         ]);
     }
 
-    
+    public function beneficios()
+    {
+        $beneficios = Beneficio::where('status','0')->get();
+        
+
+        return response()->json([
+            'status'=>200,
+            'beneficio'=>$beneficios,
+        ]);
+    }
+
+
     public function GetUserHorarioByHorarioId(){
         $userId = auth()->user()->id;
         $horarios = Horario::where('horarios.status','0')

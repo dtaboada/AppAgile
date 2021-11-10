@@ -7,6 +7,7 @@ use App\Http\Controllers\API\EjerciciosController;
 use App\Http\Controllers\API\HorarioController;
 use App\Http\Controllers\API\FrontendController;
 use App\Http\Controllers\API\AsistController;
+use App\Http\Controllers\API\BeneficioController;
 use Illuminate\Database\Eloquent\Delete;
 
 
@@ -14,7 +15,7 @@ Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 Route::get('getEjercicios', [FrontendController::class, 'ejercicios']);
 Route::get('getHorarios', [FrontendController::class, 'horarios']);
-
+Route::get('getBeneficios', [FrontendController::class, 'beneficios']);
 
 
 Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function () {
@@ -34,7 +35,10 @@ Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function () {
 
     Route::delete('delete-horarios/{id}',[HorarioController::class, 'destroy']);
 
-
+    Route::get('edit-beneficio/{id}', [BeneficioController::class, 'edit']);
+    Route::post('beneficio',[BeneficioController::class, 'beneficio']);
+    Route::put('update-beneficio/{id}',[BeneficioController::class, 'update']);
+    Route::delete('delete-beneficio/{id}',[BeneficioController::class, 'destroy']);
 
 });
 
