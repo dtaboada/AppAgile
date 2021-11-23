@@ -19,6 +19,12 @@ const Sidebar = () => {
             </div>
             Ejercicios del dia
           </Link>
+          <Link className="nav-link" to="/admin/beneficios">
+            <div className="sb-nav-link-icon">
+              <i className="fas fa-tachometer-alt"></i>
+            </div>
+            Beneficios
+          </Link>
           {/* <div className="sb-sidenav-menu-heading">wod</div>
           <Link
             className="nav-link collapsed"

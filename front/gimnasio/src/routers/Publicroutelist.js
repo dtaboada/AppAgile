@@ -6,7 +6,11 @@ import Login from "../auth/login";
 import Register from "../auth/register";
 import ViewWods from "../Componentes/frontend/ViewWods";
 import ViewHour from "../Componentes/frontend/ViewHour";
+<<<<<<< HEAD
 import ViewVideos from "../Componentes/frontend/ViewDemo/ViewVideos";
+=======
+import ViewBeneficios from "../Componentes/frontend/ViewBeneficios";
+>>>>>>> 4b1b19614bea1ccdc13af8fa22762e529853f8f5
 
 const publicRoutesList = [
   { path: "/", exact: true, name: "Home", component: PageHome },
@@ -18,6 +22,7 @@ const publicRoutesList = [
   { path: "/register", exact: true, name: "Register", component: Register },
   { path: "/wods", exact: true, name: "Wods", component: ViewWods },
   { path: "/horarios", exact: true, name: "Horarios", component: ViewHour },
+  { path: "/beneficios", exact: true, name: "Beneficios", component: ViewBeneficios},
 ];
 
 export default publicRoutesList;

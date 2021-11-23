@@ -53,6 +53,13 @@
   background-image: url(https://thumbs.dreamstime.com/z/pesa-de-gimnasia-del-metal-con-el-fondo-del-gimnasio-78457375.jpghttps://thumbs.dreamstime.com/b/fondo-abstracto-del-gimnasio-de-la-aptitud-de-la-falta-de-definici%C3%B3n-90863588.jpg);
 
  }
+
+ #caja_benefcios{
+  width: 100%;
+  margin: auto;
+  background-image: url(https://thumbs.dreamstime.com/z/pesa-de-gimnasia-del-metal-con-el-fondo-del-gimnasio-78457375.jpghttps://thumbs.dreamstime.com/b/fondo-abstracto-del-gimnasio-de-la-aptitud-de-la-falta-de-definici%C3%B3n-90863588.jpg);
+
+ }
  #caja_wods {
 width: 100%;
 margin: auto;
@@ -68,7 +75,18 @@ background-image: url(https://thumbs.dreamstime.com/z/pesa-de-gimnasia-del-metal
   display: inline-block;
   border-collapse: separate;
 
+ 
+ }
+ #beneficios_descripcion {
+  width: 20%;
+  margin: 10px 30px;
+  padding: 20px, 20px;
+  border: 1px solid #000;
+  background-color: white;
+  display: inline-block;
+  border-collapse: separate;
 
+ 
  }
 :root {
   --bs-blue: #0d6efd;
