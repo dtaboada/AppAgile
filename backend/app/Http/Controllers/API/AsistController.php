@@ -12,26 +12,31 @@ class AsistController extends Controller
     {
 
         $horarioId = $request->input('horarioId');
+        $asiste = $request->input('asiste');
         $userId = auth()->user()->id;
         $horario = Horario::find($horarioId);
         
      
         if($horario)
         {
-            if($horario->cupo > 0){
-                $this->GuardarCupo($horario);
-                $this->GuardarUserHorario($horarioId,$userId);
-                return response()->json([
-                    'status'=>201,
-                    'horario'=>$horario
-                ]);
+            if ($asiste){
+                if($horario->cupo > 0){
+                    $this->GuardarCupo($horario);
+                }else{
+                    return response()->json([
+                        'status'=>200,
+                        'message'=>'No hay cupo'
+                    ]);
+                }    
             }else{
-                return response()->json([
-                    'status'=>200,
-                    'message'=>'No hay cupo'
-                ]);
-       
-            }    
+                $this->LiberarCupo($horario);
+            }
+
+            $this->GuardarUserHorario($horarioId,$userId,$asiste);
+            return response()->json([
+                'status'=>201,
+                'horario'=>$horario
+            ]);
         }
         else 
         {
@@ -41,17 +46,6 @@ class AsistController extends Controller
             ]);
         }
     }
-        //ASI ES EL JOIN.
-        /* 
-        $horario = Horario::where('horarios.id', $horarioId)
-        ->leftJoin('user_horarios', 'horarios.id', '=', 'user_horarios.horario_id')
-        ->first();
-        return response()->json([
-            'status'=>201,
-            'horario'=>$horario
-        ]);
-        */
- 
 
 
     private function GuardarCupo($horario){
@@ -59,13 +53,18 @@ class AsistController extends Controller
         $horario->save();
     }
 
+    private function LiberarCupo($horario){
+        $horario->cupo = $horario->cupo+1;
+        $horario->save();
+    }
 
-
-    private function GuardarUserHorario($horarioId,$userId){
-        $userHorario = new UserHorario;
-        $userHorario->horario_id = $horarioId;
-        $userHorario->user_id = $userId;
-        $userHorario->asiste = true;
-        $userHorario->save();   
+    private function GuardarUserHorario($horarioId,$userId, $asiste){
+        UserHorario::upsert([
+            [
+                'horario_id' => $horarioId, 
+                'user_id' => $userId,
+                'asiste' => $asiste
+            ]
+        ], ['horario_id', 'user_id'], ['asiste']);
     }
 }
