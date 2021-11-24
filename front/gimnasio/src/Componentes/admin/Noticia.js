@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import swal from "sweetalert";
 import { useState } from "react";
-import TablaNoticia from "../tablaNoticia/tablaNoticia";
+import TablaNoticias from "../tablaNoticia/tablaNoticia";
 
 function Noticia() {
   const [noticiaInput, setNoticia] = useState({
@@ -103,9 +103,9 @@ function Noticia() {
       </form>
     </div>
     <div> 
-    <TablaNoticia>
+    <TablaNoticias>
 
-    </TablaNoticia>
+    </TablaNoticias>
     </div>
     </>
   );

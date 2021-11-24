@@ -4,7 +4,7 @@ import axios from "axios";
 
 function ViewNoticias() {
   const [loading, setLoading] = useState(true);
-  const [Noticias, setNoticias] = useState([]);
+  const [noticiasList, setNoticias] = useState([]);
 
   useEffect(() => {
     axios.get(`/api/getNoticias`).then((res) => {
@@ -20,11 +20,11 @@ function ViewNoticias() {
     return <h4>Cargando Noticias..</h4>;
   } else {
     var showNoticiasList = "";
-    showNoticiasList = Noticias.map((item, idx) => {
+    showNoticiasList = noticiasList.map((item, idx) => {
       return (
-        <div id="Noticias_descripcion" className="container" key={idx} >
+        <div id="noticias_descripcion" className="container" key={idx} >
           <div className="row">
-            <div id="texto-wod" className="col-sm">
+            <div id="texto-noticia" className="col-sm">
               <h5>{item.descripcion}</h5>
             </div>
           </div>
