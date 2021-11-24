@@ -18,14 +18,35 @@ function ViewHour() {
   function confirmarAsistencia(horarioId) {
     console.log('confirmo asistencia a clase: ' + horarioId) 
     axios.post('/api/asistir', {
-      horarioId: horarioId
+      horarioId: horarioId,
+      asiste: true
     })
     .then(function (response) {
       if (response.data.status == 201){
         let newHorarios = horarios;
         let newHorario = newHorarios.find((horario) => horario.id == horarioId);
         newHorario.asiste = true;
-        newHorario.cupo -= 1;
+        newHorario.cupo = response.data.horario.cupo;
+        setHorarios([...horarios]);
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
+  function cancelarAsistencia(horarioId) {
+    console.log('cancelo asistencia a clase: ' + horarioId) 
+    axios.post('/api/asistir', {
+      horarioId: horarioId,
+      asiste: false
+    })
+    .then(function (response) {
+      if (response.data.status == 201){
+        let newHorarios = horarios;
+        let newHorario = newHorarios.find((horario) => horario.id == horarioId);
+        newHorario.asiste = false;
+        newHorario.cupo = response.data.horario.cupo;
         setHorarios([...horarios]);
       }
     })
@@ -50,12 +71,20 @@ function ViewHour() {
                 <button disabled onClick={() => confirmarAsistencia(item.id)} type="submit" className="btn btn-success px-4 float-end">
                   Asistir
                 </button> :
-                 <button onClick={() => confirmarAsistencia(item.id)} type="submit" className="btn btn-success px-4 float-end">
+                <button onClick={() => confirmarAsistencia(item.id)} type="submit" className="btn btn-success px-4 float-end">
                  Asistir
-               </button>
+                </button>
                }
-               
-              <h5>{item.cupo}/10</h5>
+               {
+                 item.asiste ? 
+                 <button onClick={() => cancelarAsistencia(item.id)} type="submit" className="btn btn-success px-4 float-end">
+                   Cancelar
+                 </button> :
+                <button disabled onClick={() => cancelarAsistencia(item.id)} type="submit" className="btn btn-success px-4 float-end">
+                 Cancelar
+                </button>
+               }
+              <h5>Cupos: {item.cupo}/10</h5>
           </div>
         </div>
       </div>
