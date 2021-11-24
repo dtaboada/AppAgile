@@ -10,6 +10,7 @@ import ViewVideos from "../Componentes/frontend/ViewDemo/ViewVideos";
 import ViewBeneficios from "../Componentes/frontend/ViewBeneficios";
 import Noticia from "../Componentes/admin/Noticia";
 import ViewNoticias from "../Componentes/frontend/ViewNoticias";
+import VerNoticias from "../Componentes/frontend/VerNoticias";
 
 const publicRoutesList = [
   { path: "/", exact: true, name: "Home", component: PageHome },
@@ -24,6 +25,8 @@ const publicRoutesList = [
   { path: "/beneficios", exact: true, name: "Beneficios", component: ViewBeneficios},
   { path: "/noticias", exact: true, name: "Noticias", component: Noticia},
   { path: "/ViewNoticias", exact: true, name: "Noticias", component: ViewNoticias},
+  { path: "/VerNoticias", exact: true, name: "Noticias", component: VerNoticias},
+
 
 
 ];

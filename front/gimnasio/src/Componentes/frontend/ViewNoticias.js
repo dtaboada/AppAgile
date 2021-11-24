@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
 
 function ViewNoticias() {
   const [loading, setLoading] = useState(true);
@@ -14,6 +15,25 @@ function ViewNoticias() {
         setLoading(false);
       });
   },[]);
+
+  const deleteNoticia = (e, id) => {
+    e.preventDefault();
+
+    const thisClicked = e.currentTarget;
+    thisClicked.innerText = "Eliminado";
+
+    axios.delete(`/api/delete-noticia/${id}`).then(res=>{
+      if(res.data.status === 200)
+      {
+        swal("Eliminado",res.data.message,"success");
+        thisClicked.closest('tr').remove();
+      }
+      else if(res.data.status === 400){
+        swal("Success",res.data.message,"success");
+        thisClicked.innerText = "Eliminado";
+      }
+    });
+  }
   
 
   var viewNoticias_HTMLTABLE = "";
@@ -29,7 +49,7 @@ function ViewNoticias() {
                <Link to={`edit-noticias/${item.id}`} className="btn btn-success btn-sm">Editar</Link>
            </td>
            <td>
-               <button type="buttton" className="btn btn-danger btn-sm">Eliminar</button>
+               <button type="buttton" onClick= { (e) => deleteNoticia(e, item.id)} className="btn btn-danger btn-sm">Eliminar</button>
            </td>
        </tr>
       );
@@ -47,8 +67,10 @@ function ViewNoticias() {
                 <table className="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Descripcion</th>
+                            <th>Editar
+                            </th>
+                            <th>Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -58,6 +80,8 @@ function ViewNoticias() {
             </div>
         </div>
     </div>
+
+    
   );
 }
 

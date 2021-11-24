@@ -6,6 +6,8 @@ import Beneficio from "../Componentes/admin/Beneficio"
 import EditBeneficio from "../Componentes/admin/EditBeneficio"
 import Noticia from "../Componentes/admin/Noticia.js";
 import ViewNoticias from "../Componentes/frontend/ViewNoticias.js";
+import EditNoticias from "../Componentes/admin/EditNoticias.js";
+import VerNoticias from "../Componentes/frontend/VerNoticias.js";
 
 const routes = [
   { path: "/admin", exact: true, name: "Admin" },
@@ -53,6 +55,18 @@ const routes = [
     exact: true,
     name: "noticias",
     component: ViewNoticias,
+  },
+  {
+    path: "/admin/edit-noticias/:id",
+    exact: true,
+    name: "EditNoticias",
+    component: EditNoticias,
+  },
+  {
+    path: "/admin/VerNoticias",
+    exact: true,
+    name: "VerNoticias",
+    component: VerNoticias,
   },
 
   /* {
