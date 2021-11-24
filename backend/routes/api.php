@@ -8,6 +8,9 @@ use App\Http\Controllers\API\HorarioController;
 use App\Http\Controllers\API\FrontendController;
 use App\Http\Controllers\API\AsistController;
 use App\Http\Controllers\API\BeneficioController;
+use App\Http\Controllers\API\NoticiaController;
+
+
 use Illuminate\Database\Eloquent\Delete;
 
 
@@ -16,6 +19,10 @@ Route::post('login', [AuthController::class, 'login']);
 Route::get('getEjercicios', [FrontendController::class, 'ejercicios']);
 Route::get('getHorarios', [FrontendController::class, 'horarios']);
 Route::get('getBeneficios', [FrontendController::class, 'beneficios']);
+Route::get('getNoticias', [FrontendController::class, 'noticias']);
+
+
+
 
 
 Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function () {
@@ -39,6 +46,12 @@ Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function () {
     Route::post('beneficio',[BeneficioController::class, 'beneficio']);
     Route::put('update-beneficio/{id}',[BeneficioController::class, 'update']);
     Route::delete('delete-beneficio/{id}',[BeneficioController::class, 'destroy']);
+
+    Route::get('getNoticias', [NoticiaController::class, 'index']);
+    Route::post('add-noticia',[NoticiaController::class, 'add']);
+    Route::get('edit-noticias/{id}', [NoticiaController::class, 'edit']);
+    Route::put('update-noticia/{id}',[NoticiaController::class, 'update']);
+    Route::delete('delete-noticia/{id}',[NoticiaController::class, 'destroy']);
 
 });
 

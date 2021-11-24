@@ -41,6 +41,17 @@ class FrontendController extends Controller
         ]);
     }
 
+    public function noticias()
+    {
+        $noticias = Noticia::where('status','0')->get();
+        
+
+        return response()->json([
+            'status'=>200,
+            'noticias'=>$noticias,
+        ]);
+    }
+
 
     public function GetUserHorarioByHorarioId(){
         $userId = auth()->user()->id;
