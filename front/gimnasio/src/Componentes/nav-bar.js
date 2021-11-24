@@ -86,6 +86,11 @@ function NavBar() {
               </Link>
             </li>
             <li className="nav-item">
+              <Link className="nav-link active" to="/noticias">
+                Noticias
+              </Link>
+            </li>
+            <li className="nav-item">
               <Link className="nav-link active" to="/contacto">
                 Contacto
               </Link>

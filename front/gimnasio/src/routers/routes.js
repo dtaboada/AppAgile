@@ -4,6 +4,8 @@ import EditEjercicios from "../Componentes/admin/EditEjercicios.js";
 import EditHorarios from "../Componentes/admin/EditHorarios.js"
 import Beneficio from "../Componentes/admin/Beneficio"
 import EditBeneficio from "../Componentes/admin/EditBeneficio"
+import Noticia from "../Componentes/admin/Noticia.js";
+import EditNoticia from "../Componentes/admin/EditNoticias.js";
 
 const routes = [
   { path: "/admin", exact: true, name: "Admin" },
@@ -39,6 +41,19 @@ const routes = [
     exact: true,
     name: "EditBeneficios",
     component: EditBeneficio,
+  },
+  {
+    path: "/admin/noticias",
+    exact: true,
+    name: "noticias",
+    component: Noticia,
+  },
+
+  {
+    path: "/admin/edit-noticias/:id",
+    exact: true,
+    name: "EditNoticias",
+    component: EditNoticia,
   },
 
   /* {
