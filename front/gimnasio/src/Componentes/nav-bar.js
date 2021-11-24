@@ -81,13 +81,13 @@ function NavBar() {
               </Link>
             </li>
             <li className="nav-item">
-<<<<<<< HEAD
               <Link className="nav-link active" to="/DemoWod">
                 DemoWod
-=======
+              </Link>
+            </li>
+            <li className="nav-item">  
               <Link className="nav-link active" to="/beneficios">
                 Beneficios
->>>>>>> 4b1b19614bea1ccdc13af8fa22762e529853f8f5
               </Link>
             </li>
             <li className="nav-item">
