@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Ejercicios;
 use App\Models\Horario;
-
-
+use App\Models\Beneficio;
+use App\Models\Noticia;
 class FrontendController extends Controller
 {
     public function ejercicios()

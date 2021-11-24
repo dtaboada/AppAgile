@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+
+
 function ViewHour() {
   const [loading, setLoading] = useState(true);
   const [horarios, setHorarios] = useState([]);
@@ -68,19 +70,19 @@ function ViewHour() {
               <h5>{item.hora}</h5>
                {
                item.asiste ? 
-                <button disabled onClick={() => confirmarAsistencia(item.id)} type="submit" className="btn btn-success px-4 float-end">
+                <button id="boton" disabled onClick={() => confirmarAsistencia(item.id)} type="submit" className="btn btn-success px-4 float-end">
                   Asistir
                 </button> :
-                <button onClick={() => confirmarAsistencia(item.id)} type="submit" className="btn btn-success px-4 float-end">
+                <button id="boton" onClick={() => confirmarAsistencia(item.id)} type="submit" className="btn btn-success px-4 float-end">
                  Asistir
                 </button>
                }
                {
                  item.asiste ? 
-                 <button onClick={() => cancelarAsistencia(item.id)} type="submit" className="btn btn-success px-4 float-end">
+                 <button id="boton" onClick={() => cancelarAsistencia(item.id)} type="submit" className="btn btn-success px-4 float-end">
                    Cancelar
                  </button> :
-                <button disabled onClick={() => cancelarAsistencia(item.id)} type="submit" className="btn btn-success px-4 float-end">
+                <button  id="boton" disabled onClick={() => cancelarAsistencia(item.id)} type="submit" className="btn btn-success px-4 float-end">
                  Cancelar
                 </button>
                }

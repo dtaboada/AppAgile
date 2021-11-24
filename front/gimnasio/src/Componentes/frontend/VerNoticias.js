@@ -24,7 +24,7 @@ function VerNoticias() {
       return (
         <div className="col-md-4" >
           <div className="card">
-            <div className="card-body">
+            <div id="noticias" className="card-body">
               <h5>{item.descripcion}</h5>
             </div>
           </div>
