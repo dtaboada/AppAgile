@@ -8,6 +8,8 @@ import ViewWods from "../Componentes/frontend/ViewWods";
 import ViewHour from "../Componentes/frontend/ViewHour";
 import ViewVideos from "../Componentes/frontend/ViewDemo/ViewVideos";
 import ViewBeneficios from "../Componentes/frontend/ViewBeneficios";
+import Noticia from "../Componentes/admin/Noticia";
+import ViewNoticias from "../Componentes/frontend/ViewNoticias";
 
 const publicRoutesList = [
   { path: "/", exact: true, name: "Home", component: PageHome },
@@ -20,6 +22,10 @@ const publicRoutesList = [
   { path: "/wods", exact: true, name: "Wods", component: ViewWods },
   { path: "/horarios", exact: true, name: "Horarios", component: ViewHour },
   { path: "/beneficios", exact: true, name: "Beneficios", component: ViewBeneficios},
+  { path: "/noticias", exact: true, name: "Noticias", component: Noticia},
+  { path: "/ViewNoticias", exact: true, name: "Noticias", component: ViewNoticias},
+
+
 ];
 
 export default publicRoutesList;
